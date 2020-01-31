@@ -18,9 +18,11 @@ const Weather = (props) => {
   }, [props.city])
 
   const date = moment(props.date).format("YYYY-MM-DD");
-  const foundForecast = Object.keys(weatherInfo).length!==0 ?
-    weatherInfo.list.find((element) => element.dt_txt.includes(date))
-    : null;
+
+  let foundForecast = null;
+  if(weatherInfo && weatherInfo.list){
+    foundForecast = weatherInfo.list.find((element) => element.dt_txt.includes(date));
+  }
 
   return (
     <div>
