@@ -1,0 +1,53 @@
+$font-size: 1.6vw;
+
+.daysOfTheWeek{
+   display: flex;
+   justify-content: space-evenly;
+   &__day{
+     background-color: lightseagreen;
+     color: white;
+     border: 1px solid black;
+     width: 100%;
+     text-align: center;
+     font-size: $font-size;
+   }
+}
+
+.calendarDays{
+  display: grid;
+  grid-template-columns: repeat(7, calc(100vw/7));
+  &__day{
+    font-size: $font-size;
+    border: solid 1px;
+    height: calc(100vw/7);
+  }
+  &__day:nth-child(7n),
+  &__day:nth-child(7n-6) {
+    background-color: #eee;
+  }
+  &__day:nth-child(7n) &__day-number,
+  &__day:nth-child(7n-6) &__day-number{
+    color: lightseagreen;
+  }
+  &__reminder{
+    color: white;
+    display: block;
+  }
+}
+
+.reminder-editor-modal{
+  padding: 15px;
+  &__close-button{
+    float: right;
+    cursor: pointer;
+  }
+  &__section{
+    label{
+      display: block;
+      font-weight: bold;
+    }
+    > div{
+      padding: 7px 0px;
+    }
+  }
+}
